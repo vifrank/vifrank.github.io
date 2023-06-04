@@ -8,22 +8,38 @@
             align-items: center;
             height: 100vh;
             font-family: Arial, sans-serif;
-            background-color: #f0f0f0; /* a light grey background to make the checkbox stand out */
+            background-color: #f0f0f0;
         }
         div {
-            text-align: center; /* to center the checkbox and header within the div */
+            text-align: center;
         }
         #checkbox {
             width: 20px;
             height: 20px;
-            margin: auto; /* to center the checkbox within the div */
+            margin: auto;
         }
     </style>
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.4.0"></script>
 </head>
 <body>
     <div>
         <h1>Checkbox for Blake</h1>
         <input type="checkbox" id="checkbox">
     </div>
+    <script>
+        window.onload = function() {
+            const checkbox = document.getElementById('checkbox');
+            checkbox.addEventListener('change', function() {
+                if (this.checked) {
+                    confetti({
+                        particleCount: 100,
+                        startVelocity: 30,
+                        spread: 360,
+                        origin: { y: 0 }
+                    });
+                }
+            });
+        };
+    </script>
 </body>
 </html>
